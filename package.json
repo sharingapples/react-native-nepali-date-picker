@@ -1,8 +1,11 @@
 {
   "name": "react-native-nepali-date-picker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "index.js",
   "repository": "git@github.com:sharingapples/react-native-nepali-date-picker.git",
   "author": "Aashish Karki <aashish.y2z@gmail.com>",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "dependencies": {
+    "nepali-date": "^0.1.3"
+  }
 }

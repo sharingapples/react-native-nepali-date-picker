@@ -22,7 +22,7 @@ class Calendar extends Component<Props> {
     this.state = {
       // eslint-disable-next-line react/no-unused-state
       value: props.value,
-      month: props.dateType && convertDate(props.value, props.dateType),
+      month: convertDate(props.value, props.dateType),
     };
   }
 

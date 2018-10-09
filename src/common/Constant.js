@@ -30,3 +30,5 @@ export const nepaliMonth = [
   'Chaitra'];
 
 export const NUM_OF_WEEKS = 5;
+
+export const format_default = 'YYYY-MM-DD';

@@ -1,7 +1,7 @@
 import loadsh from 'lodash';
 import NepaliCalendar from './NepaliCalendar';
 import EnglishCalendar from './EnglishCalendar';
-import { DATE_TYPE_AD, DATE_TYPE_BS } from '../../common/Constant';
+import { DATE_TYPE_AD, DATE_TYPE_BS, format_default } from '../../common/Constant';
 
 export function getStartingDate(calendarObj) {
   const date = loadsh.clone(calendarObj);
@@ -12,7 +12,7 @@ export function getStartingDate(calendarObj) {
 }
 
 
-export function formatDate(date, format, dateType = DATE_TYPE_BS) {
+export function formatDate(date, dateType = DATE_TYPE_BS, format = format_default) {
   return dateType === DATE_TYPE_AD
     ? new EnglishCalendar(date).format(format)
     : new NepaliCalendar(date).format(format);

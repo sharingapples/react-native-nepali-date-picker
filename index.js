@@ -1,3 +1,8 @@
-const NepaliCalendar  = require('./src/CalendarInput/Calendar');
+import  NepaliCalendar from './src/CalendarInput/Calendar';
+import { formatDate } from './src/CalendarInput/CalendarHelper/__calendarHelper'
 
-module.exports = NepaliCalendar;
+export {
+  formatDate,
+}
+
+export default NepaliCalendar;

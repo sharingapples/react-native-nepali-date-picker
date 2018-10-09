@@ -1,7 +1,3 @@
-export const calendar = {
-  uri: require('../images/icons/calendar.png'),
-};
-
 export const DATE_TYPE_AD = 'A.D';
 export const DATE_TYPE_BS = 'B.S';
 

@@ -54,11 +54,11 @@ class Calendar extends Component<Props> {
       days.push(
         <Day
           key={date}
-          date={dateType === 'A.D' ? new Date(date) : new NepaliDate(date)}
+          date={convertDate(date, dateType).date}
           value={date.getDate()}
           isCurrentMonth={date.getMonth() === month.getMonth()}
-          isSelectedDate={date.getMonth() === selectedDate.getMonth() && (
-            date.getDate() === selectedDate.getDate())}
+          isSelectedDate={date.getMonth() === selectedDate.getMonth()
+            && date.getDate() === selectedDate.getDate()}
           onChange={onChange}
         />,
       );

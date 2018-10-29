@@ -8,55 +8,24 @@ import React from 'react';
 import Calendar from 'react-native-nepali-date-picker'
 
 const App = () => (
-  <NepaliCalendar
+  <Calendar
   // defaultDateTimeValue
-  value={new Date() }
-  // the function to change the current selected date
-  onSelect={() => onChange()}
+  value={new Date()} // default value
+  visibility={true} // set the visibilty of the component
+  onSelect={v => console.log(v)} // on each select by the user to a certain date
+  onCancel={v => console.log(v)} // on press cancel thought not required
+   //as user can handle is still can be useful as it gives you back the value you pass to it
+  onChange={v => console.log(v)} // on press ok
   />);
 
 ```
 
-Further more this component can be wrapped within a modal as well to provide functionality such as on cancel click and on submit click. Which basically means to get previously selected value and to change the value. Example:
+The resulting value v for each function call back has property as:
 
-```javascript
+  1) getYear: gives year in number
+  2) getMonth: gives Month in number
+  3) getDate: gives the date in number
 
-import React from 'react';
-import { Modal } from 'react-native';
-import NepaliCalendar from 'react-native-nepali-date-picker'
+## Output
 
-//create a ref to access the nepalicalendar functionality
-const nepaliCalendarRef= React.createRef();
-
-const App = () => (
-  <Modal
-    visible={true}
-  >
-  <NepaliCalendar
-  // defaultDateTimeValue
-  value={new Date() }
-  // the function to change the current selected date
-  onSelect={() => onChange()}
-  />);
-
-  <Button
-    title="Ok"
-    onPress={() => {
-      // changes the value of the component
-      nepaliCalendarRef.current.onChange();
-      // and add a function call to hide modal
-    }}
-    />
-
-    <Button
-      title="Cancel"
-      onPress={
-        () => {
-          // resets to previous value either set or send as default
-          nepaliCalendarRef.current.onCancel();
-          // add a function call to hide modal
-        }
-      }
-      />
-  </Modal>
- ```
+![simulator screen shot - iphone x - 2018-10-29 at 16 09 56](https://user-images.githubusercontent.com/12614476/47644129-72f3f200-db95-11e8-95d7-2ddbcbdf9032.png)

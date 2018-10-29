@@ -1,8 +1,7 @@
 // @flow
 import { clone } from 'lodash';
 import type { Calendar } from './Calendar';
-import { getStartingDate } from './__calendarHelper';
-import { englishMonth } from '../../common/Constant';
+import { englishMonth } from './CalendarConstant';
 
 class EnglishCalendar implements Calendar {
   constructor(date) {
@@ -10,7 +9,11 @@ class EnglishCalendar implements Calendar {
   }
 
   getStartingDate() {
-    return getStartingDate(this.date);
+    const date = clone(this.date);
+    date.setDate(1);
+    const day = -Math.abs(date.getDay()) + 1;
+    date.setDate(day);
+    return date;
   }
 
   getCurrentMonth() {
@@ -40,6 +43,26 @@ class EnglishCalendar implements Calendar {
   getDate() {
     return this.date.getDate();
   }
+
+  getYearList() {
+    const yearList = [];
+    const currentDate = new EnglishCalendar(this.date);
+    let yearStart = currentDate.getYear() - 150;
+    for (let i = 0; i < 500; i += 1) {
+      yearList.push(yearStart);
+      yearStart += 1;
+    }
+    return yearList;
+  }
+
+  setMonth(month) {
+    this.date.setMonth(month);
+  }
+
+  setYear(year) {
+    this.date.setYear(year);
+  }
+
 
   format(format) {
     const year = this.getYear();

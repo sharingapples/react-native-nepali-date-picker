@@ -1,8 +1,7 @@
 import { clone } from 'lodash';
 import NepaliDate from 'nepali-date';
 import type { Calendar } from './Calendar';
-import { getStartingDate } from './__calendarHelper';
-import { nepaliMonth } from '../../common/Constant';
+import { nepaliMonth } from './CalendarConstant';
 
 class NepaliCalendar implements Calendar {
   constructor(date) {
@@ -10,7 +9,11 @@ class NepaliCalendar implements Calendar {
   }
 
   getStartingDate() {
-    return getStartingDate(this.date);
+    const date = clone(this.date);
+    date.setDate(1);
+    const day = -Math.abs(date.getDay()) + 1;
+    date.setDate(day);
+    return date;
   }
 
   getCurrentMonth() {
@@ -35,6 +38,29 @@ class NepaliCalendar implements Calendar {
 
   getYear() {
     return this.date.getYear();
+  }
+
+  getDate() {
+    return this.date.getDate();
+  }
+
+  getYearList() {
+    const yearList = [];
+    const currentDate = new NepaliCalendar(this.date);
+    let yearStart = currentDate.getYear() - 150;
+    for (let i = 0; i < 200; i += 1) {
+      yearList.push(yearStart);
+      yearStart += 1;
+    }
+    return yearList;
+  }
+
+  setMonth(month) {
+    this.date.setMonth(month);
+  }
+
+  setYear(year) {
+    this.date.setYear(year);
   }
 
   format(format) {

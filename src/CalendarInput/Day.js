@@ -1,19 +1,22 @@
 import React from 'react';
 import { Text, TouchableHighlight, StyleSheet } from 'react-native';
+import { APP_COLOR, BACKGROUND_COLOR } from './CalendarHelper/CalendarConstant';
 
 
 type Props = {
   date: Date,
   value: Number,
   isCurrentMonth: boolean,
-  isSelectedDate: boolean,
+  selectedDate: Array<Date>,
+  calendarDate: Array<Date>,
   onChange: (Date) => void,
 }
 
 const styles = (isCurrentMonth, isSelectedDate) => StyleSheet.create({
   container: {
-    backgroundColor: isSelectedDate && isCurrentMonth ? 'blue' : null,
+    backgroundColor: isSelectedDate && isCurrentMonth ? APP_COLOR : BACKGROUND_COLOR,
     width: `${100 / 7} %`,
+    borderRadius: isSelectedDate && isCurrentMonth ? 50 : 0,
     alignItems: 'center',
   },
   textStyle: {
@@ -23,9 +26,10 @@ const styles = (isCurrentMonth, isSelectedDate) => StyleSheet.create({
 });
 
 const Day = ({
-  date, isCurrentMonth, isSelectedDate, onChange, value,
+  date, isCurrentMonth, onChange, value, selectedDate, calendarDate
 } : Props) => {
-  const style = styles(isCurrentMonth, isSelectedDate);
+  const style = styles(isCurrentMonth,
+    isCurrentMonth && (selectedDate.getDate() === calendarDate.getDate()));
   return (
     <TouchableHighlight
       style={style.container}

@@ -1,8 +1,8 @@
-import  NepaliCalendar from './src/CalendarInput/Calendar';
-import { formatDate } from './src/CalendarInput/CalendarHelper/__calendarHelper'
+import Calendar from './src';
+import { formatDate } from './src/CalendarInput/CalendarHelper/__calendarHelper';
 
 export {
   formatDate,
 }
 
-export default NepaliCalendar;
+export default Calendar;

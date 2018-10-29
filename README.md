@@ -5,7 +5,7 @@ This library is the date picker for nepali calendar. To use import the library a
 
 ```javascript
 import React from 'react';
-import NepaliCalendar from 'react-native-nepali-date-picker'
+import Calendar from 'react-native-nepali-date-picker'
 
 const App = () => (
   <NepaliCalendar

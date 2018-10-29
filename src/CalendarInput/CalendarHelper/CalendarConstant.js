@@ -49,3 +49,5 @@ export const FONT_COLOR_WHITE_RGBA = 'rgba(255, 255, 255, 1)';
 export const FONT_COLOR_GREY_RGBA = 'rgba(211, 211, 211, 1)';
 
 export const FONT_COLOR_BLACK_RGBA = 'rgba(0, 0, 0, 1)';
+
+export const FONT_COLOR_GREY = '#008D7F';

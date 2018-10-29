@@ -23,7 +23,6 @@ import {
   FONT_COLOR_GREY_RGBA,
   DATE_TYPE,
   DATE_TYPE_BS,
-  DATE_TYPE_AD,
 } from '../common/Constant';
 
 type Props = {
@@ -119,7 +118,12 @@ class Calendar extends Component<Props> {
 
   changeMonth(currentMonth) {
     const { date, monthList } = this.state;
-    const nextMonth = monthList.indexOf(currentMonth);
+    const nextMonth = monthList.map((m, idx) => {
+      if (m.value === currentMonth) {
+        return idx;
+      }
+      return null;
+    }).filter(m => m != null);
     date.setMonth(nextMonth);
     this.setState({ currentMonth });
   }
@@ -217,7 +221,7 @@ class Calendar extends Component<Props> {
                   itemColor={FONT_COLOR_BLACK_RGBA}
                   textColor={FONT_COLOR_WHITE_RGBA}
                   selectedItemColor={FONT_COLOR_GREY_RGBA}
-                  onChangeText={v => console.log(v)}
+                  onChangeText={v => this.changeMonth(v)}
                 />
               </View>
             </View>

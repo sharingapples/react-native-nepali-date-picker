@@ -212,7 +212,7 @@ class Calendar extends Component<Props> {
             </View>
 
             <View style={{ alignContent: 'center', alignItems: 'center', marginBottom: 20 }}>
-              <View style={{ width: 100 }}>
+              <View style={{ width: 120 }}>
                 <Dropdown
                   value={monthList[date.getMonth()].value}
                   data={monthList}

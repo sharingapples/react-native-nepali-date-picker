@@ -22,9 +22,9 @@ const App = () => (
 
 The resulting value v for each function call back has property as:
 
-  1) getYear: gives year in number
-  2) getMonth: gives Month in number
-  3) getDate: gives the date in number
+  1) getYear(): gives year in number
+  2) getMonth(): gives Month in number
+  3) getDate(): gives the date in number
 
 ## Output
 

@@ -5,6 +5,7 @@ import {
   Text,
   Modal,
   Dimensions,
+  TouchableOpacity,
 } from 'react-native';
 import { Dropdown } from 'react-native-material-dropdown';
 import { clone } from 'lodash';
@@ -34,12 +35,12 @@ type Props = {
 const styles = {
   container: {
     backgroundColor: BACKGROUND_COLOR,
-    height: '50%',
+    height: '75%',
     width: '88%',
     borderRadius: 10,
   },
   header: {
-    backgroundColor: APP_COLOR,
+    backgroundColor: '#652D86',
     height: '33%',
     borderTopRightRadius: 10,
     borderTopLeftRadius: 10,
@@ -195,10 +196,11 @@ class Calendar extends Component<Props> {
                   onChangeText={v => this.changeYear(v)}
                 />
               </View>
-              <View style={{ width: '70%' }}>
+              {/* <View style={{ width: '70%' }}>
                 <View style={styles.flexDirectionRowReverse}>
                   <View style={{ width: 52 }}>
                     <Dropdown
+                      di
                       value={dateType}
                       data={DATE_TYPE}
                       itemColor={FONT_COLOR_BLACK_RGBA}
@@ -208,7 +210,7 @@ class Calendar extends Component<Props> {
                     />
                   </View>
                 </View>
-              </View>
+              </View> */}
             </View>
 
             <View style={{ alignContent: 'center', alignItems: 'center', marginBottom: 20 }}>
@@ -234,8 +236,14 @@ class Calendar extends Component<Props> {
             <WeekHeader />
             {data}
             <View style={{ flexDirection: 'row-reverse' }}>
-              <Button title="Ok" onPress={() => onChange && onChange(selectedDate)} />
-              <Button title="Cancel" onPress={() => onCancel && onCancel(prevDate)} />
+              <TouchableOpacity onPress={() => {
+                onChange && onChange(selectedDate)
+              }}>
+                <Text style={{ color: APP_COLOR, fontSize: 18, fontFamily:"Poppins-Regular" }}>Select</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => onCancel && onCancel(prevDate)} >
+                <Text style={{ color: APP_COLOR, fontSize: 18, marginRight: 20,fontFamily:"Poppins-Regular" }}>Cancel</Text>
+              </TouchableOpacity>
 
             </View>
           </View>

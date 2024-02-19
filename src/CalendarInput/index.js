@@ -35,13 +35,13 @@ type Props = {
 const styles = {
   container: {
     backgroundColor: BACKGROUND_COLOR,
-    height: '75%',
+    // height: '80%',
     width: '88%',
     borderRadius: 10,
   },
   header: {
     backgroundColor: '#652D86',
-    height: '33%',
+    // height: '33%',
     borderTopRightRadius: 10,
     borderTopLeftRadius: 10,
   },
@@ -188,6 +188,7 @@ class Calendar extends Component<Props> {
             <View style={styles.flexDirectionRow}>
               <View style={{ width: '25%', marginLeft: 10 }}>
                 <Dropdown
+                  renderVerticalScrollIndicator={false}
                   value={date.getYear()}
                   data={yearList}
                   itemColor={FONT_COLOR_BLACK_RGBA}
@@ -231,11 +232,11 @@ class Calendar extends Component<Props> {
           </View>
         </View>
 
-        <View style={{ alignContent: 'center', alignItems: 'center' }}>
+        <View style={{ alignContent: 'center', alignItems: 'center', justifyContent:"space-around"}}>
           <View style={{ width: '95%' }}>
             <WeekHeader />
             {data}
-            <View style={{ flexDirection: 'row-reverse' }}>
+            <View style={{ flexDirection: 'row-reverse',alignSelf:"flex-end" }}>
               <TouchableOpacity onPress={() => {
                 onChange && onChange(selectedDate)
               }}>

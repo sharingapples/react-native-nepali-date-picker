@@ -23,7 +23,7 @@ const Calendar = ({ onChange, onCancel }) => (
           backgroundColor: 'rgba(52, 52, 52, 0.8)',
         }}
       >
-        <CalendarInput onChange={onChange} onCancel={onCancel} />
+        <CalendarInput onChange={onChange} onCancel={onCancel}/>
       </View>
     </Modal>
   </View>

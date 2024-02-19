@@ -8,11 +8,14 @@ class NepaliCalendar implements Calendar {
     this.date = new NepaliDate(date);
   }
 
+  
+
   getStartingDate() {
     const date = clone(this.date);
     date.setDate(1);
     const day = -Math.abs(date.getDay()) + 1;
     date.setDate(day);
+    console.log("check the starting date =>", date)
     return date;
   }
 
@@ -45,13 +48,16 @@ class NepaliCalendar implements Calendar {
   }
 
   getYearList() {
+    console.log("check this date =>", this.date)
     const yearList = [];
     const currentDate = new NepaliCalendar(this.date);
-    let yearStart = currentDate.getYear() - 150;
-    for (let i = 0; i < 200; i += 1) {
+    console.log("currentDate =>", currentDate.getYear()-79)
+    let yearStart = currentDate.getYear() - 79;
+    for (let i = 0; i < 80; i += 1) {
       yearList.push(yearStart);
       yearStart += 1;
     }
+    console.log("year start =>", yearList)
     return yearList;
   }
 

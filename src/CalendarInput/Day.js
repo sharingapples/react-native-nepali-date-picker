@@ -22,6 +22,11 @@ const styles = (isCurrentMonth, isSelectedDate) => StyleSheet.create({
   textStyle: {
     // eslint-disable-next-line no-nested-ternary
     color: isCurrentMonth ? (isSelectedDate ? 'white' : 'black') : 'grey',
+    alignSelf:"center",
+    textAlign:"center",
+    // padding:5,
+    marginLeft:5,
+    marginTop:5
   },
 });
 
@@ -32,10 +37,14 @@ const Day = ({
     isCurrentMonth && (selectedDate.getDate() === calendarDate.getDate()));
   return (
     <TouchableHighlight
+      disabled={!isCurrentMonth}
       style={style.container}
-      onPress={() => onChange(date)}
+      onPress={() => {
+        console.log("check the date =>", date)
+        onChange(date)
+      }}
     >
-      <Text style={[style.textStyle]}>{value} </Text>
+      <Text style={[style.textStyle,{fontFamily: "Poppins-Regular"}]}>{value} </Text>
     </TouchableHighlight>
   );
 };
